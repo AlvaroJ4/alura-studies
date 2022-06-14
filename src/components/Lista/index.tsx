@@ -1,4 +1,5 @@
 import React from "react";
+import style from './Lista.module.scss';
 
 function Lista() {
     const tarefas = [{
@@ -12,13 +13,13 @@ function Lista() {
         tempo: '03:00:00'
     }]
     return (
-        <aside>
+        <aside className={style.listaTarefas}>
             <h2>Estudos do dia</h2>
             <ul>
                 {tarefas.map((item, index) => (
-                    <li key={index}>
+                    <li key={index} className={style.item}>
                         <h3> {item.tarefa} </h3>
-                        <span>{item.tempo}</span>
+                        <span> {item.tempo} </span>
                     </li>
                 ))}
             </ul>
@@ -27,3 +28,6 @@ function Lista() {
 }
 
 export default Lista;
+
+// caso voce coloque '{}' no map voce vai estar dizendo que quer criar um escopo para essa função
+// se voce colocar '()' é porque voce que retorna um array, isso retorna os itens como esperado!
