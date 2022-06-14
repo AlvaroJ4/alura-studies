@@ -1,11 +1,11 @@
 import React from "react";
 import sytle from './Botao.module.scss'
 
-class Botao extends React.Component{
+class Botao extends React.Component<{ children: string }>{
     render() {
         return(
             <button className={sytle.botao}>
-                Botao
+                {this.props.children}
             </button>
         )
     }
