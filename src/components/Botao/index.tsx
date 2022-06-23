@@ -1,15 +1,20 @@
 import React from "react";
-import sytle from './Botao.module.scss'
+import sytle from './Botao.module.scss';
 
-class Botao extends React.Component<{ type?: "button" | "submit" | "reset" | undefined , children: string }>{
-    render() {
-        const { type = 'button' } = this.props
-        return(
-            <button type={type} className={sytle.botao}>
-                {this.props.children}
-            </button>
-        )
-    }
+interface Props {
+
+    type?: "button" | "submit" | "reset" | undefined, 
+    onClick?: () => void , 
+    children?   : React.ReactNode 
+    
+}
+
+function Botao({ onClick, type, children}: Props) {
+    return (
+        <button onClick={onClick} type={type} className={sytle.botao}>
+            {children}
+        </button>
+    )
 }
 
 export default Botao;
